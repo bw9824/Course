@@ -57,6 +57,7 @@ First decide **what** the circuit must do, treating it as a black box; write eve
 | 1 | 0 | 1 | 0 |
 | 1 | 1 | 0 | 0 |
 | 1 | 1 | 1 | 1 |
+
 → `Out = A'B'C + A'BC' + AB'C' + ABC` = `A ⊕ B ⊕ C` (XOR)
 
 ```
