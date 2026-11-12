@@ -19,7 +19,7 @@
 
 ## Problem 2
 **Q:** What does the following circuit do?
-![[EEP535_ICTE1_P2_circuit_q.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_ICTE1_P2_circuit_q.png|450]]
 
 **Ans:** `F = A'B + AB' = A ⊕ B` → This circuit implements an XOR function. The output F is 1 when A and B are different, and 0 when they are the same.
 

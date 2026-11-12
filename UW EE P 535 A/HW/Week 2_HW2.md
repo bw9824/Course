@@ -1,5 +1,3 @@
-# HW 2
-
 ## Problem 1
 **Q:** For the following truth tables, provide the corresponding Boolean equation. Do not simplify the equations.
 
@@ -26,11 +24,11 @@
 
 **Ans:**
 - F = 1 for XYZ = 000, 100, 101 (else 0)
-![[EEP535_HW2_P2_F.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_HW2_P2_F.png|450]]
 - G = **1 for every input** (the `+ C` and `C'` terms cover everything)
-![[EEP535_HW2_P2_G.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_HW2_P2_G.png|450]]
 - H = **E** (the AD… term is always 0: `(C+B)'` needs B = 0, then `(D'+B)` needs D = 0, but AD needs D = 1)
-![[EEP535_HW2_P2_H.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_HW2_P2_H.png|450]]
 
 ## Problem 3
 **Q:** Use DeMorgan's to compute the inverse of the three expressions in problem 2. Then, simplify the equations.
@@ -69,7 +67,7 @@ H = X(Y' + YZ' + YZ + Z') + YZ' + X'YZ
 
 ## Problem 5
 **Q:** Convert the following circuit to a Boolean equation. Then, simplify this equation.
-![[EEP535_HW2_P5_circuit_q.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_HW2_P5_circuit_q.png|450]]
 **Ans:** `F = (AB + A'C) · (BC' + AB')'` → **`F = A'C + BC`**
 ```
 F = (AB + A'C)(BC' + AB')'
@@ -101,4 +99,4 @@ endmodule
 - T1: `T = X + (1 · Y')`
 - T2: `Val = Z + (T · X')`
 - Draw two copies of the tstMod gates (NOT + AND + OR); keep the AND with constant 1 (no simplifying).
-![[EEP535_HW2_P6_bigMod.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_HW2_P6_bigMod.png|450]]

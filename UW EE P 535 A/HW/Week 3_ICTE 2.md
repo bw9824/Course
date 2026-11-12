@@ -1,6 +1,6 @@
 ## Problem 1
 **Q:** What does this circuit do?
-![[EEP535_ICTE2_P1_circuit_q.png|450]]
+![[Course/UW EE P 535 A/HW/Picture/EEP535_ICTE2_P1_circuit_q.png|450]]
 
 **Ans:** **XOR** — `A = NAND(X,Y)`, `B = NOR(X,Y)`, `F = A ⊕ B = X ⊕ Y`
 
