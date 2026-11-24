@@ -1,13 +1,13 @@
 # Intro to FPGAs and Digital Logic
 
 ## 1. FPGA
-| Part | Role |
-|---|---|
-| **Logic blocks** | Programmable logic (LUTs that mimic AND/OR/XOR…, plus flip-flops) |
-| **Programmable interconnect** | Switchable wires connecting the blocks |
-| **I/O blocks** | Connect to the pins / outside world |
-| **Block RAM** | On-chip memory |
-| **DSP units** | Hardwired multipliers / adders for math |
+| Part                          | Role                                                              |
+| ----------------------------- | ----------------------------------------------------------------- |
+| **Logic blocks**              | Programmable logic (LUTs that mimic AND/OR/XOR…, plus flip-flops) |
+| **Programmable interconnect** | Switchable wires connecting the blocks                            |
+| **I/O blocks**                | Connect to the pins / outside world                               |
+| **Block RAM**                 | On-chip memory                                                    |
+| **DSP units**                 | Hardwired multipliers / adders for math                           |
 - "Field programmable": it's reconfigured **after manufacturing**, by the user, as many times as you want.
 
 **Using an FPGA**
@@ -18,22 +18,22 @@ Verilog ──► FPGA CAD tools (Quartus) ──► bitstream ──► downloa
 
 > 💡 **FPGA vs ASIC vs CPU**: an ASIC is custom hardware (fastest, but fixed and very expensive to make); a CPU runs software (flexible, but one instruction at a time); an FPGA sits in between — real parallel hardware that can be rewritten. Used for prototyping ASICs, networking, signal processing, low-latency trading, etc.
 
-## 2. Digital vs Analog
-| | Digital | Analog |
-|---|---|---|
-| Values | Discrete: 0 / 1 (no/yes, off/on, low/high, FALSE/TRUE) | Continuous over a range |
-| Noise | A small input error doesn't change the 0/1 meaning | A small input error → large output error |
-- Digital: more **accurate and reliable**; self-contained building blocks that are **easy to cascade**; computers are digital inside.
-- But **sensors and actuators** (the interface to the real world) are often analog.
-- Typical voltages: 0 = 0 V, 1 = 5 V (older) or **3.3 V** (modern).
-
-## 3. Basic Gates
+## 2. Basic Gates
 | Gate    | Rule                                 | Notation             |
 | ------- | ------------------------------------ | -------------------- |
 | **AND** | Out = 1 only if **all** inputs are 1 | `A·B`, `AB`, `A & B` |
 | **OR**  | Out = 1 if **any** input is 1        | `A + B`, `A \| B`    |
 | **NOT** | Out = opposite of input              | `Ā`, `A'`, `~A`      |
 - AND / OR can have more than 2 inputs.
+
+## 3. Digital vs Analog
+|        | Digital                                                | Analog                                   |
+| ------ | ------------------------------------------------------ | ---------------------------------------- |
+| Values | Discrete: 0 / 1 (no/yes, off/on, low/high, FALSE/TRUE) | Continuous over a range                  |
+| Noise  | A small input error doesn't change the 0/1 meaning     | A small input error → large output error |
+- Digital: more **accurate and reliable**; self-contained building blocks that are **easy to cascade**; computers are digital inside.
+- But **sensors and actuators** (the interface to the real world) are often analog.
+- Typical voltages: 0 = 0 V, 1 = 5 V (older) or **3.3 V** (modern).
 
 ## 4. Combinational vs Sequential
 |                   | Combinational           | Sequential                                  |
@@ -43,6 +43,7 @@ Verilog ──► FPGA CAD tools (Quartus) ──► bitstream ──► downloa
 | Example           | Adder, multiplexer      | Counter, vending machine                    |
 
 ## 5. "Black Box" Design → Truth Table
+
 First decide **what** the circuit must do, treating it as a black box; write every input combination and the output.
 
 **Odd parity**: Out = 1 when an **odd number** of inputs are 1.
@@ -69,6 +70,7 @@ A⊕B = A'B + AB'; (A⊕B)' = A'B' + AB (XNOR)
 ```
 
 ## 6. Boolean Algebra Basics
+
 - Values: **0, 1**. Variables: A, B, C… Operations: **NOT, AND, OR**.
 
 | X | Y | X·Y | X+Y | X' |
@@ -118,6 +120,7 @@ Cout = AB + AC + BC
 - Check: put a 1 in every row where some product term is true → must match the original table.
 
 ## 9. Representations of One Function
+
 `F = X' + YZ`:
 
 | X | Y | Z | F |
@@ -133,7 +136,8 @@ Cout = AB + AC + BC
 - Circuit: X → NOT; Y, Z → AND; both into an OR → F.
 - Same function, four views: **equation, truth table, circuit, Verilog**.
 
-## 10. Why Minimize Logic?
+## 10. Why Minimize Logic ?
+
 Goal: fewer **literals** (gate inputs), fewer **gates**, fewer **levels** of gates.
 
 | Benefit  | Why                                                                   |
