@@ -41,20 +41,20 @@ endmodule
 
 ## Problem 4
 **Q:** We have a circuit that hooks a positive-edge triggered DFF (from class) and a negative-edge triggered DFF to the same D input. The negative-edge triggered DFF responds only to the falling (negative) edge of the clock, the instant when the clock goes from true to false. Fill in the following timing diagram for this case. Assume that all gate delays are very tiny compared to the length of the clock period.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P4_timing_q.png|550]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P4_timing_q.png|550]]
 Note: All machines must be Mealy machines, like we taught in class. That is, all outputs are given on the transitions (edges between states), not on the states.
 
 **Ans:**
 - posedge DFF: copies D **only at rising edges**, holds in between; negedge DFF: copies D **only at falling edges**.
 - Glitches of D between edges are ignored.
 - Q is **unknown (X)** until the first active edge of that DFF.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P4_ans.png|650]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P4_ans.png|650]]
 
 ## Problem 5
 **Q:** Design a string recognizer whose output will be true if the last four input values seen are "1100" or "1010", including the current one. For this circuit (a) draw the state diagram and (b) implement it with D flip-flops.
 
 **Ans:** States remember the useful suffix: start, `1`, `11`, `110`, `10`, `101`. Output 1 on input 0 from `110` or `101`.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P5_state.png|700]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P5_state.png|700]]
 
 | Q2Q1Q0 (state) | X     | D2D1D0 (Next) | Z         |
 | -------------- | ----- | ------------- | --------- |
@@ -71,11 +71,11 @@ D1 = Q0
 D2 = Q1Q0X' + Q1Q0'X = Q1(Q0 ⊕ X)
 ```
 - Encoding trick: Q0 = last input, Q1 = input before → D0 and D1 become plain wires (shift register).
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P5_circuit.png|650]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P5_circuit.png|650]]
 
 ## Problem 6
 **Q:** Create an implementation of the following finite state machine. You can use any basic gates, and D flip-flops.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P6_fsm_q.png|450]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P6_fsm_q.png|450]]
 **Ans:**
 
 | S1S0 | In = 0, D1D0/Out | In = 1, D1D0/Out |
@@ -88,7 +88,7 @@ D1  = S0·In
 D0  = S1 + In
 Out = S1          (10 is unused → don't care)
 ```
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P6_circuit.png|400]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P6_circuit.png|400]]
 
 ## Problem 7
 **Q:** We wish to design a soda vending machine which charges $.30 cents per soda (very economical). There is one coin slot, which will accept only quarters, nickels, and dimes. The controller has two outputs, Give_Soda and Return_Last_Coin. Draw the corresponding state diagram assuming the vending machine only accepts the correct change. You do NOT need to provide the state table or implementation. Notes: If the user provides more than $.30, you should return the last coin put in. If you get the correct amount, you should dispense a soda and be ready for the next user.
@@ -96,7 +96,7 @@ Out = S1          (10 is unused → don't care)
 - Total = 30¢ → `/10`, go back to 0¢.
 - Total > 30¢ → `/01`, stay in the same state (coin returned).
 - Otherwise → `/00`, add the coin.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P7_soda.png|700]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P7_soda.png|700]]
 
 ## Problem 8
 **Q:** In many games, players have to win by two points. Design an FSM to enforce this rule. Specifically, you have an input In. Make the output TrueWins true only when you get a total of two more TRUEs than FALSEs, and start a new game. Make the output FalseWins true only when you get a total of two more FALSEs than TRUEs, and start a new game. Draw the state diagram for this design.
@@ -104,4 +104,4 @@ Out = S1          (10 is unused → don't care)
 - Tied: 1 → True+1, 0 → False+1 (`/00`)
 - True+1: 1 → Tied `/10` (True wins, new game); 0 → Tied `/00`
 - False+1: 0 → Tied `/01` (False wins, new game); 1 → Tied `/00`
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_HW3_P8_win_by_two.png|400]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_HW3_P8_win_by_two.png|400]]

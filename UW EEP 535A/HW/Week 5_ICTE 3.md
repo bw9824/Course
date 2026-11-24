@@ -18,17 +18,17 @@ endmodule                        endmodule
 
 ## Problem 2
 **Q:** Given the light display shown, build the FSM for a "move left" arrow traffic sign. It should animate an arrow moving left. Hint: Can any of the bulbs be connected to the same signal?
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_ICTE3_P2_lights_q.png|350]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_ICTE3_P2_lights_q.png|350]]
 **Ans:** 3 states, no input, cycle S0 → S1 → S2 → S0 (arrow moves right → middle → left).
 - S0: right arrow `{C, H, N, U, Y}`
 - S1: middle arrow `{B, F, L, S, X}`
 - S2: left arrow `{A, D, J, Q, W}`
 - Each arrow's 5 bulbs share one signal → only **3 output signals**.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_ICTE3_P2_arrow.png|650]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_ICTE3_P2_arrow.png|650]]
 
 ## Problem 3
 **Q:** What is the series of inputs that will produce the most TRUEs on the output?
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_ICTE3_P3_fsm_q.png|400]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_ICTE3_P3_fsm_q.png|400]]
 **Ans:** Best loop: `B →(0/1) D →(1/0) C →(1/1) B` = **2 TRUEs per 3 inputs**
 - From reset (A): input `0` to reach B, then repeat `0 1 1` → `0 011 011 011 …`
 - Other loops are worse (e.g. C→A→B→D→C gives 2 per 4).
@@ -43,11 +43,11 @@ endmodule                        endmodule
 | ON    | → OFF / 00 | → RED / 01 |
 | RED   | → OFF / 00 | → RED / 01 |
 - No button: OFF ↔ ON every clock → yellow flashes. Button held: stay in RED (solid red). Release → OFF, flashing restarts.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_ICTE3_P4_ambulance.png|500]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_ICTE3_P4_ambulance.png|500]]
 
 ## Problem 5
 **Q:** What does this FSM do?
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_ICTE3_P5_fsm_q.png|300]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_ICTE3_P5_fsm_q.png|300]]
 **Ans:** Output alternates **0, 1, 0, 1, …** regardless of input → **divide-by-2 toggle** (zero/one only remember the input, output ignores it).
 
 ## Problem 6
@@ -55,4 +55,4 @@ endmodule                        endmodule
 **Ans:** Count zeros N0 and ones N1, each **saturating at 2** → 3 × 3 = **9 states**.
 - 0 → N0+1 (stay at 2), 1 → N1+1 (stay at 2).
 - Output 1 only on edges **leaving (N0=2, N1=2)** ("not including current input"); every other edge /0.
-![[personal_note/美國留學 & 生活/UW/課程/EE P 535 A/Picture/EEP535_ICTE3_P6_two0s_two1s.png|550]]
+![[personal_note/美國留學 & 生活/UW/課程/EEP 535 A/Picture/EEP535_ICTE3_P6_two0s_two1s.png|550]]
