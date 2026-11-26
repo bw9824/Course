@@ -2,20 +2,23 @@
 
 ## 1. Basic
 
-| Origin               | Simplify           | Description                                  |
-| -------------------- | ------------------ | -------------------------------------------- |
-| X+~X                 | 1                  |                                              |
-| X~X                  | 0                  |                                              |
-| X+0, X+X, XX, X(X+Y) | X                  |                                              |
-| X+YZ                 | (X+Y)(X+Z)         |                                              |
-| X+~XY                | X+Y                | Using the previous formulas<br>= (X+~X)(X+Y) |
-| ~(X + Y)<br>~(X * Y) | ~X * ~Y<br>~X + ~Y | DeMorgan’s Law                               |
+### 1.1 Single-variable laws
 
-| Law          | OR form                     | AND form                  |
-| ------------ | --------------------------- | ------------------------- |
-| Commutative  | `X + Y = Y + X`             | `XY = YX`                 |
-| Associative  | `X + (Y + Z) = (X + Y) + Z` | `X(YZ) = (XY)Z`           |
-| Distributive | `X(Y + Z) = XY + XZ`        | `X + YZ = (X + Y)(X + Z)` |
+| Law | OR form | AND form | Meaning |
+| --- | --- | --- | --- |
+| Identity | `X + 0 = X` | `X · 1 = X` | 0 doesn't change an OR; 1 doesn't change an AND |
+| Null | `X + 1 = 1` | `X · 0 = 0` | 1 forces OR to 1; 0 forces AND to 0 |
+| Idempotent | `X + X = X` | `X · X = X` | Repeating a variable changes nothing |
+| Complement | `X + X' = 1` | `X · X' = 0` | A variable and its inverse: one of them is always 1 |
+| Involution | `(X')' = X` | | Two NOTs cancel |
+
+### 1.2 Multi-variable laws
+
+| Law | OR form | AND form |
+| --- | --- | --- |
+| Commutative | `X + Y = Y + X` | `XY = YX` |
+| Associative | `X + (Y + Z) = (X + Y) + Z` | `X(YZ) = (XY)Z` |
+| Distributive | `X + YZ = (X + Y)(X + Z)` | `X(Y + Z) = XY + XZ` |
 
 ## 2. Absorption Laws
 | Expression        | Result    | Why                    |
@@ -140,7 +143,7 @@ module AOI (F, A, B, C, D);
 	input  logic A, B, C, D;
 	logic AB, CD, O;
 	
-	and a1 (AB, A, B);      // a1 = instance name
+	and a1 (AB, A, B);      // a1 = instance name: it labels this gate in waveforms, error messages and reports, and matches the schematic, so it's easy to find when debugging.
 	and a2 (CD, C, D);
 	or  o1 (O, AB, CD);
 	not n1 (F, O);
@@ -205,6 +208,5 @@ endmodule
 | 1 | 0 | 1 | 0 |
 | 1 | 1 | 0 | 0 |
 - Symbol: AND / OR with a small circle (= inversion) on the output.
-- By DeMorgan: NAND = OR with inverter on the inputs; NOR = AND with inverter on the inputs.
 
-> 💡 In CMOS, NAND and NOR are the natural gates (fewest transistors); AND = NAND + inverter.
+> 💡 In CMOS, NAND and NOR are the natural gates (fewest transistors).
